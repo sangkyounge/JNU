@@ -13,19 +13,18 @@ switch_case = {
   2621440: "아래쪽 화살표키 입력"        		# 
 }
 
-image = np.ones((200, 300), np.float32)   #원소값 1인 행렬 생성
-cv2.namedWindow('Keyboard Event')			# 윈도우 이름
+image = np.ones((200,300), np.float32)
+cv2.namedWindow('Keyboard Event')			# 
 cv2.imshow('Keyboard Event', image)
 
-while True:									# 
-    key = cv2.waitKeyEx(100)              #100ms 동안 키 이벤트 대기
-    if key == 27:
-        break
-    
+while True:
+    key = cv2.waitKeyEx(100)              # 100ms 동안 키 이벤트 대기 (0.1초)
+    if key == 27: break                   # ESC 키 누르면 종료
+
     try:
         result = switch_case[key]
         print(result)
     except KeyError:
-        result = -1
+        result =-1
 
-cv2.destroyAllWindows()                 	
+cv2.destroyAllWindows()                 	# 열린 윈도우 모두 제거

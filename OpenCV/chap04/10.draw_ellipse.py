@@ -7,13 +7,16 @@ image = np.full((300, 700, 3), white, np.uint8)
 pt1, pt2 = (180, 150), (550, 150)                       # 타원 중심점
 size = (120, 60)                                        # 타원 크기 - 반지름 값임
 
-cv2.circle(                    )                        
-cv2.circle( )
+cv2.circle(image, pt1, 1, 0, 2 )                        # 타원의 중심점(2화소 원)표시
+cv2.circle(image, pt2, 1, 0, 2 )
+
+cv2.ellipse(image, pt1, size, 0, 0, 360, blue, 1)       # 타원 그리기
+cv2.ellipse(image, pt2, size, 90, 0, 360, blue, 1 )     # 이미지, 중점, 반지름 크기, 타원이 회전할 각도, 타원의 시작 각도, 타원이 그려지는 각도
+cv2.ellipse(image, pt1, size, 0, 30, 270, orange, 4 )
+cv2.ellipse(image, pt2, size, 90, -45, 90, orange, 4 )
 
 
 
 
-
-
-cv2.imshow("Draw Eclipse & Arc", image)
+cv2.imshow("문자열", image)
 cv2.waitKey()                                           # 키입력 대기
